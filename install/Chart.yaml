@@ -1,8 +1,7 @@
 apiVersion: v2
 name: platform-ipfs-cluster-node
-version: 0.1.0
+version: 0.1.3
 description: Solenopsys platfrom IPFS-cluster-node
 icon: "http://alexstorm.solenopsys.org/apps/assets/ipfs-cluster-node.svg"
 appVersion: 1.0.0
-
 

@@ -1,0 +1,21 @@
+replicasCount: 1
+fullName: "ipfs-cluster-node"
+selectorLabel: "ipfs-cluster-node"
+ipfsServiceName: "ipfs-node"
+
+service:
+  p2p: 9096
+
+storage:
+  data:
+    volumeName: data-vol
+    storageSize: 1Gi
+    accessModes: "ReadWriteOnce"
+
+containers:
+  kobo:
+    name: cluster-node
+    image: ipfs/ipfs-cluster
+    pullPolicy: IfNotPresent
+
+sharedSecret: ""

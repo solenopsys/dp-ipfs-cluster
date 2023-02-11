@@ -4,9 +4,8 @@ metadata:
   name: platform-ipfs-cluster-node
   namespace: kube-system
 spec:
-  chart: platform-ipfs-node
+  chart: platform-ipfs-cluster-node
   targetNamespace: default
-  version: 0.1.26
+  version: 0.1.3
   repo: https://helm.solenopsys.org
   helmVersion: v3
-  failurePolicy: rollback
