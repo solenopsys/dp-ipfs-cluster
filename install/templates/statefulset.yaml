@@ -26,7 +26,7 @@ spec:
                   name: {{ .Values.fullName }}-secret
                   key: secret
             - name: CLUSTER_IPFSHTTP_NODEMULTIADDRESS
-              value: /dns4/{{ .Values.ipfsServiceName }}.svc.cluster.local/tcp/5001
+              value: /dns4/{{ .Values.ipfsServiceName }}.default.svc.cluster.local/tcp/5001
             - name: CLUSTER_CRDT_TRUSTEDPEERS
               value: '*' # Trust all peers in Cluster
             - name: CLUSTER_RESTAPI_HTTPLISTENMULTIADDRESS

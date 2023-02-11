@@ -18,4 +18,4 @@ containers:
     image: ipfs/ipfs-cluster
     pullPolicy: IfNotPresent
 
-sharedSecret: ""
+sharedSecret: "d17142e629749515ebf23c56de08a25f0a19c5218ef079a38f27c1219275a0dd"
