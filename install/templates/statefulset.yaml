@@ -15,11 +15,18 @@ spec:
       labels:
         app: {{ .Values.fullName }}
     spec:
+      volumes:
+        - name: bootstrap-volume
+          configMap:
+            name: ipfs-cluster-bootstrap
+            items:
+              - key: bootstrap.sh
+                path: bootstrap.sh
       containers:
         - image: {{ .Values.containers.kobo.image }}
           env:
             - name: CLUSTER_PEERNAME
-              value: "cluster-peer-0"
+              value: {{ .Values.peerName }}
             - name: CLUSTER_SECRET
               valueFrom:
                 secretKeyRef:
@@ -33,14 +40,23 @@ spec:
               value: /ip4/0.0.0.0/tcp/9094 # Expose API
             - name: CLUSTER_MONITORPINGINTERVAL
               value: 2s # Speed up peer discovery
+          command:
+            - /bin/sh
+            - /container-init.d/bootstrap.sh
           name: {{ .Values.containers.kobo.name }}
           imagePullPolicy: {{ .Values.containers.kobo.pullPolicy }}
           ports:
             - containerPort: {{ .Values.service.p2p }}
               name: p2p
+            - containerPort: {{ .Values.service.rest }}
+              name: rest
           volumeMounts:
             - name: {{ .Values.storage.data.volumeName }}
               mountPath: /data/ipfs-cluster
+            - name: bootstrap-volume
+              mountPath: /container-init.d/bootstrap.sh
+              subPath: bootstrap.sh
+              readOnly: true
   updateStrategy:
     type: RollingUpdate
   volumeClaimTemplates:

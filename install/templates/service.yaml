@@ -6,7 +6,7 @@ metadata:
   name: {{ .Values.fullName}}
 spec:
   ports:
-    - port: {{ .Values.service.p2p }}
-      name: p2p
+    - port: {{ .Values.service.rest }}
+      name: rest
   selector:
     app: {{ .Values.selectorLabel }}
