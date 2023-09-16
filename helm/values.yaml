@@ -21,7 +21,7 @@ containers:
 
 peerName: "default-peer-name"
 
-sharedSecret: "d17142e629749515ebf23c56de08a25f0a19c5218ef079a38f27c1219275a0dd"
+sharedSecret: "d17142e629749515ebf23c56de08a25f0a19c5218ef079a38f27c1219275a0dd" # test only
 
 bootstrap:
   - "/dns4/alpha-ipfs-cluster-node-service.default.svc.cluster.local/tcp/9096/ipfs/12D3KooWDrevkZ21E7gRqHoXNdCdvmvg1EQP3peRxmG1pLtoTDbB"
